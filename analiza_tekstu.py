@@ -11,3 +11,29 @@
 # Aby obliczyć średnią długość słowa, możesz zsumować długość wszystkich słów i podzielić przez liczbę słów.
 # Możesz użyć słownika do zliczenia wystąpień poszczególnych słów i znaków interpunkcyjnych.
 # Po zliczeniu wszystkich słów i znaków interpunkcyjnych, możesz wybrać te, które występują najczęściej.
+
+
+def analiza_tekstu(wejscie):
+
+    liczba_slow = len(wejscie.split())
+
+    liczba_zdań = 0
+    znaki_interpunkcyjne = set(".!?")
+    for znak in wejscie:
+        if znak in znaki_interpunkcyjne:
+            liczba_zdań = liczba_zdań + 1
+
+    liczba_liter = 0
+    for slowo in wejscie.split():
+        liczba_liter += len(slowo)
+
+    srednia_liczba = liczba_liter / len(wejscie.split())
+    return liczba_slow, liczba_zdań, srednia_liczba
+
+
+wejscie = input("Wpisz tekst: ")
+wynik = analiza_tekstu(wejscie)
+
+print("Liczba słów w twoim tekście wynosi:", wynik[0])
+print("Liczba zdań w twoim tekście wynosi:", wynik[1])
+print("Średnia liczba liter w słowie w twoim tekście wynosi:", wynik[2])
